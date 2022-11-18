@@ -6,4 +6,4 @@ const originJson: Ec.OriginTable[] = JSON.parse(
 );
 const resolver = new Resolver();
 const result = resolver.handle(originJson);
-console.log(result.get("User")?.VOMap);
+console.log(result.get("User"));
