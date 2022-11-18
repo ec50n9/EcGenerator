@@ -1,0 +1,75 @@
+[
+    {
+        "name": "User",
+        "do": {
+            "id": "long!",
+            "username": "str!",
+            "nickname": "str?$username",
+            "password": "str!",
+            "sex": "int:(0|1|2)?0",
+            "age": "int:(0-100)?18",
+            "description": "str?null",
+            "createdBy": "~User.id",
+            "createdAt": "date-time",
+            "updatedBy": "~User.id",
+            "updatedAt": "date-time",
+            "isDeleted": "bool?false"
+        },
+        "dtoMap": {
+            "create": {
+                "id": "none",
+                "createdBy": "none",
+                "createdAt": "none",
+                "updatedBy": "none",
+                "updatedAt": "none"
+            }
+        },
+        "voMap": {
+            "list": {
+                "password": "none",
+                "description": "none",
+                "isDeleted": "none"
+            },
+            "detail": {
+                "password": "none",
+                "isDeleted": "none"
+            },
+            "!options": {
+                "name": "$username",
+                "value": "$id"
+            }
+        }
+    },
+    {
+        "name": "Role",
+        "do": {
+            "id": "long!",
+            "name": "str!",
+            "code": "str!",
+            "description": "str?null",
+            "createdBy": "~User.id",
+            "createdAt": "date-time",
+            "updatedBy": "~User.id",
+            "updatedAt": "date-time",
+            "isDeleted": "bool?false"
+        },
+        "dtoMap": {
+            "create": {
+                "id": "none",
+                "createdBy": "none",
+                "createdAt": "none",
+                "updatedBy": "none",
+                "updatedAt": "none"
+            }
+        },
+        "voMap": {
+            "list": {
+                "isDeleted": "none"
+            },
+            "!options": {
+                "name": "~Role.name",
+                "value": "~Role.id"
+            }
+        }
+    }
+]
